@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            overflow: hidden;   
+
+        }
+        .container{
+            width:100vw;
+            height:100vh;
+            position:relative;
+        }
+
+        #mySlides {
+            width: 400vw;
+           height:100%;
+           display: flex;
+        }
+        #images{
+            width:100%;
+           height:100%;
+        }
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            width:100vw;
+            height:100vh;
+            position: relative;
+            
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="slideshow-container">
+        <div id="mySlides">
+            <img id="images" src="images/first.jpg" style="width:100%">
+            <img id="images" src="images/second.jpg" style="width:100%">
+            <img id="images" src="images/third.jpg" style="width:100%">
+            <img id="images" src="images/fourth.jpg" style="width:100%">
+        </div>
+    </div>
+    <br>
+    <a class="prev" id="prev_btn">&#10094;</a>
+        <a class="next" id="next_btn">&#10095;</a>
+        
+</div>
+
+    <script>
+        const prev_btn = document.getElementById("prev_btn");
+        const next_btn = document.getElementById("next_btn");
+        const image = document.getElementById("mySlides");
+        let index=0;
+
+       
+        prev_btn.addEventListener('click',(event)=>{
+            index>0 ? index-- : index=2;
+            if(index>=0 && index <3){
+                let size=index*-100
+                image.style.transform=`translateX(${size}vw)`;
+            }   
+        })
+
+        next_btn.addEventListener('click',(event)=>{
+            console.log(image)
+            index<2 ? index++ : index=0;
+            if(index>=0 && index <3){
+                let size=index*-100
+                image.style.transform=`translateX(${size}vw)`;
+                
+            }
+        })
+    </script>
+
+</body>
+
+</html>
